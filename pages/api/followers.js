@@ -18,6 +18,7 @@ function runMiddleware(req, res, fn) {
 }
 
 export default async (req, res) => {
+  await runMiddleware(req, res, cors);
   if (req.method === "POST") {
     const username = req.body.TWuser;
 
