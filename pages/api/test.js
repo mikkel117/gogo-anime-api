@@ -17,5 +17,4 @@ export default async (req, res) => {
       error: "error",
     });
   }
-  revalidate: 10;
 };
