@@ -9,6 +9,7 @@ export default async (req, res) => {
   try {
     let genres = [];
     let epList = [];
+    let otherName = [];
 
     const animePageTest = await axios.get(
       `https://gogoanime.gg/category/${req.query.id}`
@@ -26,10 +27,15 @@ export default async (req, res) => {
       .text()
       .replace("Released: ", "");
     const status = $("div.anime_info_body_bg > p:nth-child(8) > a").text();
-    const otherName = $("div.anime_info_body_bg > p:nth-child(9)")
+    const splitOtherNames = $("div.anime_info_body_bg > p:nth-child(9)")
       .text()
       .replace("Other name: ", "")
-      .replace(/;/g, ",");
+      .replace(/;/g, ",")
+      .split(",");
+
+    splitOtherNames.forEach((element) => {
+      otherName.push(element.trim());
+    });
 
     $("div.anime_info_body_bg > p:nth-child(6) > a").each((i, elem) => {
       genres.push($(elem).attr("title").trim());
