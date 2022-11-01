@@ -6,15 +6,24 @@ const anime_movies_path = "/anime-movies.html";
 
 export default async (req, res) => {
   let list = [];
+  let aphList = [];
+  const tempEpisodesList = [];
+  const tempPagesList = [];
   try {
-    const movie = await axios.get(`
-           ${BASE_URL + anime_movies_path}?aph=${req.query.aph
-      .trim()
-      .toUpperCase()}&page=${req.query.page}
-           `);
+    let movie;
+    if (req.query.aph != null) {
+      movie = await axios.get(`
+      ${BASE_URL + anime_movies_path}?aph=${req.query.aph
+        .trim()
+        .toUpperCase()}&page=${req.query.page}
+      `);
+    } else {
+      movie = await axios.get(`
+      ${BASE_URL + anime_movies_path}&page=${req.query.page}
+      `);
+    }
+
     const $ = cheerio.load(movie.data);
-    const tempEpisodesList = [];
-    const tempPagesList = [];
 
     $("div.last_episodes > ul > li").each((i, el) => {
       tempEpisodesList.push({
@@ -34,10 +43,22 @@ export default async (req, res) => {
         page: $(el).find("a").text(),
       });
     });
+    $("div.list_search > ul > li").each((i, el) => {
+      aphList.push({
+        aph: $(el).find("a").text(),
+        value: $(el)
+          .find("a")
+          .attr("href")
+          .replace("/anime-movies.html?aph=", "")
+          .replace("/anime-movies.html", "")
+          .trim(),
+      });
+    });
     list = [
       {
         episodes: tempEpisodesList,
         pages: tempPagesList,
+        aphList: aphList,
       },
     ];
     return res.status(200).json({
