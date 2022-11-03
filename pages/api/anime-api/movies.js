@@ -62,7 +62,7 @@ export default async (req, res) => {
       },
     ];
     return res.status(200).json({
-      pisodes: tempEpisodesList,
+      episodes: tempEpisodesList,
       pages: tempPagesList,
       aphList: aphList,
     });
