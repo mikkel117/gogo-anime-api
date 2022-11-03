@@ -48,7 +48,8 @@ export default async (req, res) => {
     ];
 
     return res.status(200).json({
-      list,
+      episodes: tempEpisodesList,
+      pages: tempPagesList,
     });
   } catch (err) {
     return res.status(404).json({

@@ -7,6 +7,8 @@ const BASE_URL = "https://gogoanime.film/";
 
 export default async (req, res) => {
   let list = [];
+  let genresArray = [];
+  let value = [];
   try {
     const genres = await axios.get(`${BASE_URL}`);
     const $ = cheerio.load(genres.data);
@@ -18,9 +20,13 @@ export default async (req, res) => {
         genres: $(elem).find("a").text(),
         value: $(elem).find("a").attr("href").split("/")[2],
       });
+      genresArray.push({
+        genre: $(elem).find("a").text(),
+        value: $(elem).find("a").attr("href").split("/")[2],
+      });
     });
     return res.status(200).json({
-      list,
+      genres: genresArray,
     });
   } catch (e) {
     return res.status(404).json({
