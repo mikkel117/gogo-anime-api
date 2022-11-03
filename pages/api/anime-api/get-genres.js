@@ -16,7 +16,7 @@ export default async (req, res) => {
     ).each((i, elem) => {
       list.push({
         genres: $(elem).find("a").text(),
-        /* value: $(elem).find("a").attr("href").split("/")[2], */
+        value: $(elem).find("a").attr("href").split("/")[2],
       });
     });
     return res.status(200).json({
