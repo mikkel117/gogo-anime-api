@@ -38,8 +38,8 @@ export default async (req, res) => {
       },
     ];
     return res.status(200).json({
-      tempEpisodesList,
-      tempPagesList,
+      episodes: tempEpisodesList,
+      pages: tempPagesList,
     });
   } catch (err) {
     return res.status(404).json({
