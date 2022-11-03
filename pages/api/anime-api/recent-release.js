@@ -49,7 +49,7 @@ export default async (req, res) => {
       list,
     });
   } catch (e) {
-    return res.status(500).json({
+    return res.status(404).json({
       error: e.message,
     });
   }

@@ -39,7 +39,7 @@ export default async (req, res) => {
     return res.status(500).json({
       error: err.message,
     }); */
-    return res.status(500).json({
+    return res.status(404).json({
       error: err.message,
     });
   }

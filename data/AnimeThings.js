@@ -23,7 +23,7 @@ export const Genres = [
   "martial-arts",
   "mecha",
   "military",
-  "Mmusic",
+  "music",
   "mystery",
   "parody",
   "police",

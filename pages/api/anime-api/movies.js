@@ -65,7 +65,7 @@ export default async (req, res) => {
       list,
     });
   } catch (err) {
-    return res.status(500).json({
+    return res.status(404).json({
       error: err.message,
     });
   }
