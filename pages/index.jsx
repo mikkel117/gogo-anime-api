@@ -16,12 +16,18 @@ export default function Home() {
   return (
     <>
       <div className={styles.container}>
-        <button
-          onClick={() => {
-            fetchData();
-          }}>
-          click me
-        </button>
+        <h1> welcome to my version of the gogoanime API</h1>
+        <h2>the end points are</h2>
+        <ul>
+          <li>anime details: api/anime-api/anime-details?id="anime id"</li>
+          <li>
+            genres: api/anime-api/genres?genre="anime genre"&page="page number"
+          </li>
+          <li>get anime by id: api/anime-api/get-anime-by-id?id="anime id"</li>
+          <li>get all genres: api/anime-api/get-genres</li>
+          <li>movies: api/anime-api/movies</li>
+          <li></li>
+        </ul>
       </div>
     </>
   );
