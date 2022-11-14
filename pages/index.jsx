@@ -23,11 +23,11 @@ export default function Home() {
             anime details: api/anime-api/anime-details?id=<span> anime id</span>
           </li>
           <li>
-            genres: api/anime-api/genres?genre= <span> anime genre</span>&page={" "}
+            genres: api/anime-api/genres?genre= <span> anime genre</span>&page=
             <span> page number</span>
           </li>
           <li>
-            get anime by id: api/anime-api/get-anime-by-id?id={" "}
+            get anime by id: api/anime-api/get-anime-by-id?id=
             <span> anime id</span>
           </li>
           <li>get all genres: api/anime-api/get-genres</li>
