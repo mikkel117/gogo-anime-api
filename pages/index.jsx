@@ -19,11 +19,17 @@ export default function Home() {
         <h1>hello welcome to my version of the gogoanime API</h1>
         <h2>the end points are</h2>
         <ul>
-          <li>anime details: api/anime-api/anime-details?id="anime id"</li>
           <li>
-            genres: api/anime-api/genres?genre="anime genre"&page="page number"
+            anime details: api/anime-api/anime-details?id=<span> anime id</span>
           </li>
-          <li>get anime by id: api/anime-api/get-anime-by-id?id="anime id"</li>
+          <li>
+            genres: api/anime-api/genres?genre= <span> anime genre</span>&page={" "}
+            <span> page number</span>
+          </li>
+          <li>
+            get anime by id: api/anime-api/get-anime-by-id?id={" "}
+            <span> anime id</span>
+          </li>
           <li>get all genres: api/anime-api/get-genres</li>
           <li>movies: api/anime-api/movies</li>
         </ul>
